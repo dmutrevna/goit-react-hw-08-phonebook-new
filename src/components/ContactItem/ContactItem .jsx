@@ -2,10 +2,10 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { deleteContactThunk } from 'redux/store/operations';
-
 import { IoMdContact } from 'react-icons/io';
 import { TiDelete } from 'react-icons/ti';
+import { deleteContact } from 'redux/store/operations';
+
 import {
   ContactItemContainer,
   ContactIcon,
@@ -26,7 +26,7 @@ export const ContactItem = contact => {
       <ContactNumber>{contact.number}</ContactNumber>
       <DeleteButton
         type="button"
-        onClick={() => dispatch(deleteContactThunk(contact.id))}
+        onClick={() => dispatch(deleteContact(contact.id))}
       >
         <TiDelete />
       </DeleteButton>

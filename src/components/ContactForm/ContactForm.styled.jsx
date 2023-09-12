@@ -17,7 +17,7 @@ export const TitlePhone = styled.h1`
   padding-top: 10px;
   color: rgb(29, 30, 30);
   text-transform: uppercase;
-  text-shadow: 10px 10px 10px rgba(197, 248, 231, 0.9);
+  text-shadow: 10px 10px 10px rgba(146, 148, 248, 0.4);
 `;
 
 export const TitleContacts = styled.h2`
@@ -40,7 +40,7 @@ export const FormContainer = styled.form`
   margin: 0 auto;
   padding: 20px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 10px;
 
   h2 {
     margin-bottom: 8px;
@@ -51,29 +51,49 @@ export const FormContainer = styled.form`
     margin-bottom: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 10px;
     outline: none;
 
     &:focus {
-      border-color: rgb(197, 248, 231);
+      border-color: rgb(146, 148, 248);
     }
   }
 
   button {
-    width: 150px;
-    padding: 8px 12px;
-    font-size: 16px;
-    background-color: rgb(197, 248, 231);
-    color: black;
-    border: none;
-    border-radius: 4px;
+    text-decoration: none;
+    border: 1px solid rgb(146, 148, 248);
+    position: relative;
+    overflow: hidden;
+    width: 200px;
+    height: 35px;
     cursor: pointer;
-    outline: none;
-    margin: auto;
+    text-align: center;
+    margin: 0 auto;
+    border-radius: 20px;
+    margin-top: 15px;
 
     &:hover {
-      background-color: rgb(173, 245, 221);
-      transform: scale(1.1);
+      box-shadow: 1px 1px 25px 10px rgba(146, 148, 248, 0.4);
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(146, 148, 248, 0.4),
+        transparent
+      );
+      transition: all 650ms;
+    }
+
+    &:hover::before {
+      left: 100%;
     }
   }
 `;

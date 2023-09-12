@@ -18,11 +18,11 @@ export const FilterInput = styled.input`
   padding: 8px;
   font-size: 16px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 10px;
   outline: none;
   margin-bottom: 20px;
 
   &:focus {
-    border-color: rgb(197, 248, 231);
+    border-color: rgb(146, 148, 248);
   }
 `;

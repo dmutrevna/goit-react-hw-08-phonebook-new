@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Notify from 'notiflix';
+import 'react-phone-input-2/lib/style.css';
+import PhoneInput from 'react-phone-input-2';
 
-import { addContactThunk } from 'redux/store/operations';
 import { selectContacts } from 'redux/store/selectors';
+import { addContact } from 'redux/store/operations';
 
 import { FormContainer, SubTitle } from './ContactForm.styled';
 
@@ -33,10 +35,12 @@ export const ContactForm = () => {
       Notify.failure(`${name} is already in contacts`);
       return;
     }
-    dispatch(addContactThunk({ name, number }));
+    dispatch(addContact({ name, number }));
     setName('');
     setNumber('');
   };
+
+  const preferredCountries = ['ua', 'pl', 'de'];
 
   return (
     <FormContainer onSubmit={handleSubmit}>
@@ -51,14 +55,24 @@ export const ContactForm = () => {
         required
       />
       <SubTitle>Number</SubTitle>
-      <input
+      <PhoneInput
         type="tel"
         name="number"
         pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
         value={number}
-        onChange={handleChange}
+        onChange={setNumber}
         required
+        country={'ua'}
+        placeholder="+380"
+        preferredCountries={preferredCountries}
+        inputStyle={{ width: '380px', borderRadius: '10px' }}
+        dropdownStyle={{
+          backgroundColor: '#f5f5f5',
+          borderRadius: '5px',
+          boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)',
+          border: '1px solid rgb(146, 148, 248);',
+        }}
       />
       <button type="submit">Add contact</button>
     </FormContainer>

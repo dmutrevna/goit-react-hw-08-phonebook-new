@@ -1,12 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
-import {
-  addContactThunk,
-  deleteContactThunk,
-  getContactsThunk,
-} from './operations';
+import { addContact, deleteContact, requestContacts } from './operations';
 
 const initialState = {
-  items: [],
+  contacts: [],
   isLoading: false,
   error: null,
 };
@@ -26,20 +22,19 @@ const phoneBookSlice = createSlice({
 
   extraReducers: builder => {
     builder
-      .addCase(getContactsThunk.fulfilled, (state, { payload }) => {
-        state.items = payload;
+      .addCase(requestContacts.fulfilled, (state, { payload }) => {
+        state.contacts = payload;
         state.isLoading = false;
       })
-      .addCase(addContactThunk.fulfilled, (state, { payload }) => {
-        state.items.push(payload);
+      .addCase(addContact.fulfilled, (state, { payload }) => {
+        state.contacts.push(payload);
         state.isLoading = false;
       })
-      .addCase(deleteContactThunk.fulfilled, (state, action) => {
-        const index = state.items.findIndex(
-          item => item.id === action.payload.id
+      .addCase(deleteContact.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.contacts = state.contacts.filter(
+          contact => contact.id !== action.payload.id
         );
-        state.items.splice(index, 1);
-        state.isLoading = false;
       })
       .addMatcher(action => action.type.endsWith('/pending'), pending)
       .addMatcher(action => action.type.endsWith('/rejected'), rejected);

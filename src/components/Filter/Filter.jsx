@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 
 import { addFilter } from 'redux/store/filterSlice';
+
 import { FilterForm, FilterLabel, FilterInput } from './Filter.styled';
 
 export const Filter = () => {

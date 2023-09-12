@@ -6,7 +6,7 @@ export const ContactItemContainer = styled.li`
   margin: auto;
   margin-bottom: 20px;
   padding: 8px;
-  background-color: rgb(197, 248, 231);
+  background-color: rgb(201, 201, 246);
   border-radius: 4px;
   border: 1px solid #ccc;
   width: 400px;
