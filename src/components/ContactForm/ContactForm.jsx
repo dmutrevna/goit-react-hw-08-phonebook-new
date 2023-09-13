@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Notify from 'notiflix';
+
 import 'react-phone-input-2/lib/style.css';
 import PhoneInput from 'react-phone-input-2';
 
@@ -8,6 +8,7 @@ import { selectContacts } from 'redux/store/selectors';
 import { addContact } from 'redux/store/operations';
 
 import { FormContainer, SubTitle } from './ContactForm.styled';
+import { Notify } from 'notiflix';
 
 export const ContactForm = () => {
   const [name, setName] = useState('');
