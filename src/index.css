@@ -33,7 +33,10 @@ img {
 }
 
 #sidebar a.active {
-  color: red;
+  color: white;
+}
+input {
+  border-radius: 10px;
 }
 
 :root {

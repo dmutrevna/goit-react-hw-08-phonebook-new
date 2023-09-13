@@ -11,6 +11,7 @@ import {
   LoginPageContainer,
   TitleRegistration,
 } from './RegisterPage.styled';
+import { Notify } from 'notiflix';
 
 const RegisterPage = () => {
   const dispatch = useDispatch();
@@ -27,6 +28,11 @@ const RegisterPage = () => {
       email,
       password,
     };
+
+    if (registerUser) {
+      Notify.success(`Congratulations! You have registered`);
+    }
+
     dispatch(registerUser(formData));
   };
 

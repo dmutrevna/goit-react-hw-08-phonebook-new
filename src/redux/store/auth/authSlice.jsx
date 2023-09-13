@@ -11,6 +11,7 @@ const initialState = {
   token: null,
   isLoading: false,
   authenticated: false,
+  // isRegistration:false,
   error: null,
 };
 

@@ -11,6 +11,11 @@ import {
 import { refreshUser } from 'redux/store/auth/authOperations';
 import { selectUserAuthentication } from 'redux/store/selectors';
 import UserMenu from 'components/UserMenu/UserMenu';
+import {
+  NavSidebar,
+  NavigationContainer,
+  StyledNavLink,
+} from './Navigation.styled';
 
 function Navigation() {
   const dispatch = useDispatch();
@@ -21,22 +26,22 @@ function Navigation() {
   }, [dispatch]);
 
   return (
-    <header>
-      <nav id="sidebar">
-        <NavLink to={HOME_ROUTE}>Home</NavLink>
+    <NavigationContainer>
+      <NavSidebar id="sidebar">
+        <StyledNavLink to={HOME_ROUTE}>Home</StyledNavLink>
         {authenticated ? (
           <>
-            <NavLink to={CONTACTS_ROUTE}>Contacts</NavLink>
+            <StyledNavLink to={CONTACTS_ROUTE}>Contacts</StyledNavLink>
             <UserMenu />
           </>
         ) : (
           <>
-            <NavLink to={LOGIN_ROUTE}>Login</NavLink>
-            <NavLink to={REGISTRATION_ROUTE}>Registration</NavLink>
+            <StyledNavLink to={LOGIN_ROUTE}>Login</StyledNavLink>
+            <StyledNavLink to={REGISTRATION_ROUTE}>Registration</StyledNavLink>
           </>
         )}
-      </nav>
-    </header>
+      </NavSidebar>
+    </NavigationContainer>
   );
 }
 
