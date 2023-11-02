@@ -74,5 +74,4 @@ const RegisterPage = () => {
     </LoginPageContainer>
   );
 };
-
 export default RegisterPage;
